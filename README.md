@@ -41,7 +41,7 @@ bash -c "$(wget -qLO - https://github.com/atlas34/proxmox/raw/proxmox-lxc-docker
 
 ⚡ Default Settings:  2GB RAM - 8GB Storage - 2vCPU ⚡
 
-**Portainer Interface - IP:9000**
+**Portainer Interface - IP:9443**
 
 ⚙️ **To Update**
 
