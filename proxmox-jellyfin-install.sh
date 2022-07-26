@@ -105,21 +105,22 @@ ln -s /usr/share/jellyfin/web/ /usr/lib/jellyfin/bin/jellyfin-web
 msg_ok "Created Service"
 
 PASS=$(grep -w "root" /etc/shadow | cut -b6);
-  if [[ $PASS != $ ]]; then
-msg_info "Customizing Container"
-chmod -x /etc/update-motd.d/*
-touch ~/.hushlogin
-GETTY_OVERRIDE="/etc/systemd/system/container-getty@1.service.d/override.conf"
-mkdir -p $(dirname $GETTY_OVERRIDE)
-cat << EOF > $GETTY_OVERRIDE
+if [[ $PASS != \$ ]]
+then
+  msg_info "Customizing Container"
+  chmod -x /etc/update-motd.d/*
+  touch ~/.hushlogin
+  GETTY_OVERRIDE="/etc/systemd/system/container-getty@1.service.d/override.conf"
+  mkdir -p $(dirname $GETTY_OVERRIDE)
+  cat << EOF > $GETTY_OVERRIDE
 [Service]
 ExecStart=
 ExecStart=-/sbin/agetty --autologin root --noclear --keep-baud tty%I 115200,38400,9600 \$TERM
 EOF
-systemctl daemon-reload
-systemctl restart $(basename $(dirname $GETTY_OVERRIDE) | sed 's/\.d//')
-msg_ok "Customized Container"
-  fi
+  systemctl daemon-reload
+  systemctl restart $(basename $(dirname $GETTY_OVERRIDE) | sed 's/\.d//')
+  msg_ok "Customized Container"
+fi
   
 msg_info "Cleaning up"
 apt-get autoremove >/dev/null

@@ -31,3 +31,21 @@ Run in the LXC console
 apt update && apt upgrade -y
 ```
 
+## Proxmox Install Docker in LXC container
+
+To create a new Proxmox Docker LXC, run the following in the Proxmox Shell.
+
+```yaml
+bash -c "$(wget -qLO - https://github.com/atlas34/proxmox/raw/proxmox-lxc-docker.sh)"
+```
+
+⚡ Default Settings:  2GB RAM - 8GB Storage - 2vCPU ⚡
+
+**Portainer Interface - IP:9000**
+
+⚙️ **To Update**
+
+Run in the LXC console
+```yaml
+apt update && apt upgrade -y
+```
