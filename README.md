@@ -3,7 +3,7 @@ based on https://tteck.github.io/Proxmox/ Scripts
 
 ## Proxmox Post Install script:
 
-<p align="center"><img src="https://raw.githubusercontent.com/atlas34/proxmox/images/proxmox.png" height="100"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Atlas34/proxmox/main/images/proxmox.png" height="100"/></p>
 
 The script will give options to Disable the Enterprise Repo, Add/Correct PVE7 Sources, Enable the No-Subscription Repo, Add Test Repo, Disable Subscription Nag and Update Proxmox VE.
  
@@ -15,7 +15,7 @@ bash -c "$(wget -qLO - https://github.com/atlas34/proxmox/raw/proxmox-post-insta
 
 ## Proxmox Install Jellyfin in LXC container
 
-<p align="center"><img src="https://raw.githubusercontent.com/atlas34/proxmox/images/Jellyfin.png" height="100"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/atlas34/proxmox/main/images/Jellyfin.png" height="100"/></p>
 
 To create a new Proxmox Jellyfin Media Server LXC, run the following in the Proxmox Shell.
 
@@ -37,7 +37,7 @@ apt update && apt upgrade -y
 
 ## Proxmox Install Docker in LXC container
 
-<p align="center"><img src="https://raw.githubusercontent.com/atlas34/proxmox/images/docker.png" height="100"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/atlas34/proxmox/main/images/docker.png" height="100"/></p>
 
 To create a new Proxmox Docker LXC, run the following in the Proxmox Shell.
 
@@ -57,6 +57,6 @@ apt update && apt upgrade -y
 ```
 ## Proxmox Install Home Assistant in LXC container
 
-<p align="center"><img src="https://raw.githubusercontent.com/atlas34/proxmox/images/homeassistant.png" height="100"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/atlas34/proxmox/main/images/homeassistant.png" height="100"/></p>
 
  ⚠️ **Install Docker container before running this script**
