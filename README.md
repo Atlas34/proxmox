@@ -55,8 +55,17 @@ Run in the LXC console
 ```yaml
 apt update && apt upgrade -y
 ```
-## Proxmox Install Home Assistant in LXC container
+## Proxmox Install Home Assistant in DOCKER LXC container
 
 <p align="center"><img src="https://raw.githubusercontent.com/atlas34/proxmox/main/images/homeassistant.png" height="100"/></p>
 
  ⚠️ **Install Docker container before running this script**
+
+To add a new docker Home Assistant Container, run the following command in the Proxmox Shell.
+ 
+```yaml
+bash -c "$(wget -qLO - https://github.com/atlas34/proxmox/raw/proxmox-lxc-homeassistant.sh)"
+```
+
+After install, reboot Home Assistant and **clear browser cache** then Add HACS integration.
+
