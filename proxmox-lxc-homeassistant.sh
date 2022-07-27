@@ -33,7 +33,7 @@ function error_exit() {
 
 while true; do
     clear
-    read -p "This will create a New ${APP} ib DOCKER LXC. Proceed(y/n)?" yn
+    read -p "This will create a New ${APP} in a DOCKER LXC. Proceed(y/n)?" yn
     case $yn in
         [Yy]* ) break;;
         [Nn]* ) exit;;
@@ -93,7 +93,7 @@ function select_container() {
 }
 
 function start_script() {
-  advanced_settings 
+  select_container 
 }
 
 PVE_CHECK
