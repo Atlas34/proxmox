@@ -117,5 +117,5 @@ IP=$(pct exec $CTID ip a s dev eth0 | sed -n '/inet / s/\// /p' | awk '{print $2
 
 msg_ok "Completed Successfully!\n"
 echo -e "${APP} should be reachable by going to the following URL.
-         ${BLUE}http://${IP}:8123${NORMAL}
+         ${BLUE}http://${IP}:8123${NORMAL}"
 
