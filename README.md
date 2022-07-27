@@ -15,7 +15,7 @@ bash -c "$(wget -qLO - https://github.com/atlas34/proxmox/raw/proxmox-post-insta
 
 ## Proxmox Install Jellyfin in LXC container
 
-<p align="center"><img src="https://raw.githubusercontent.com/atlas34/proxmox/main/images/Jellyfin.png" height="100"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/atlas34/proxmox/main/images/jellyfin.png" height="100"/></p>
 
 To create a new Proxmox Jellyfin Media Server LXC, run the following in the Proxmox Shell.
 
