@@ -10,7 +10,7 @@ The script will give options to Disable the Enterprise Repo, Add/Correct PVE7 So
 Run the following in the Proxmox Shell. ⚠️ **PVE7 ONLY**
 
 ```yaml
-bash -c "$(wget -qLO - https://github.com/atlas34/proxmox/raw/proxmox-post-install.sh)"
+bash -c "$(wget -qLO - https://github.com/atlas34/proxmox/raw/main/proxmox-post-install.sh)"
 ```
 
 ## Proxmox Install Jellyfin in LXC container
@@ -20,7 +20,7 @@ bash -c "$(wget -qLO - https://github.com/atlas34/proxmox/raw/proxmox-post-insta
 To create a new Proxmox Jellyfin Media Server LXC, run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://github.com/atlas34/proxmox/raw/proxmox-lxc-jellyfin.sh)"
+bash -c "$(wget -qLO - https://github.com/atlas34/proxmox/raw/main/proxmox-lxc-jellyfin.sh)"
 ```
 ⚡ Default Settings:  2GB RAM - 8GB Storage - 2vCPU ⚡
 
@@ -42,7 +42,7 @@ apt update && apt upgrade -y
 To create a new Proxmox Docker LXC, run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://github.com/atlas34/proxmox/raw/proxmox-lxc-docker.sh)"
+bash -c "$(wget -qLO - https://github.com/atlas34/proxmox/raw/main/proxmox-lxc-docker.sh)"
 ```
 
 ⚡ Default Settings:  2GB RAM - 8GB Storage - 2vCPU ⚡
@@ -64,7 +64,7 @@ apt update && apt upgrade -y
 To add a new docker Home Assistant Container, run the following command in the Proxmox Shell.
  
 ```yaml
-bash -c "$(wget -qLO - https://github.com/atlas34/proxmox/raw/proxmox-lxc-homeassistant.sh)"
+bash -c "$(wget -qLO - https://github.com/atlas34/proxmox/raw/main/proxmox-lxc-homeassistant.sh)"
 ```
 
 After install, reboot Home Assistant and **clear browser cache** then Add HACS integration.
