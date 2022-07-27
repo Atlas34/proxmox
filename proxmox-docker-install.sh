@@ -96,7 +96,7 @@ msg_info "Installing Portainer $PORTAINER_LATEST_VERSION"
 docker volume create portainer_data >/dev/null
 docker run -d \
   -p 8000:8000 \
-  -p 9000:9443 \
+  -p 9000:9000 \
   --name=Portainer \
   --restart=always \
   -v /var/run/docker.sock:/var/run/docker.sock \

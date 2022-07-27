@@ -361,6 +361,6 @@ pct set $CTID -description "# ${APP} LXC
 
 msg_ok "Completed Successfully!\n"
 echo -e "Portainer should be reachable by going to the following URL.
-             ${BLUE}http://${IP}:9443${NORMAL}\n"
+             ${BLUE}http://${IP}:9000${NORMAL}\n"
 
 
