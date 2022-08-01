@@ -335,13 +335,12 @@ export PCT_OPTIONS="
   -hostname $HN
   -net0 name=eth0,bridge=$BRG,ip=$NET$GATE$VLAN
   -onboot 1
-  -arch amd64
   -cores $CORE_COUNT
   -memory $RAM_SIZE
   -unprivileged $CT_TYPE
   $PW
 "
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/atlas34/proxmox/proxmox-create_lxc.sh)" || exit
+bash -c "$(wget -qLO - https://github.com/atlas34/proxmox/raw/main/proxmox-create-lxc.sh)" || exit
 
 LXC_CONFIG=/etc/pve/lxc/${CTID}.conf
 cat <<EOF >> $LXC_CONFIG
@@ -353,7 +352,7 @@ msg_info "Starting LXC Container"
 pct start $CTID
 msg_ok "Started LXC Container"
 
-lxc-attach -n $CTID -- bash -c "$(wget -qLO - https://raw.githubusercontent.com/atlas34/proxmox/proxmox-docker-install.sh)" || exit
+lxc-attach -n $CTID -- bash -c "$(wget -qLO - https://github.com/atlas34/proxmox/raw/main/proxmox-docker-install.sh)" || exit
 
 IP=$(pct exec $CTID ip a s dev eth0 | sed -n '/inet / s/\// /p' | awk '{print $2}')
 
