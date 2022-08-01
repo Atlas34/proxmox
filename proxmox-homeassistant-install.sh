@@ -67,7 +67,7 @@ docker run -d \
   homeassistant/home-assistant:stable &>/dev/null
 msg_ok "Installed Home Assistant $CORE_LATEST_VERSION"
 
-mkdir /root/HomeAssistant_config
+mkdir -p /root/HomeAssistant_config
 
 read -r -p "Would you like to add HACS (Home Assistant Community Store) ? <Y/n> " prompt
 if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" || $prompt == "" ]]
@@ -79,8 +79,11 @@ fi
 
 if [[ $HACS == "Y" ]]
 then
-  msg_info "Installing HACS latest version"
+  msg_info "Installing Dependencies...."
   apt install unzip &>/dev/null
+  msg_ok "Installed Dependencies."
+  msg_info "Installing HACS latest version"
+  cd /root/HomeAssistant_config
   wget -O - https://get.hacs.xyz | bash -
   msg_ok "Installed HACS completed"
 fi
