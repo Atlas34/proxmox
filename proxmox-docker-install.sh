@@ -84,7 +84,7 @@ sh <(curl -sSL https://get.docker.com) &>/dev/null
 msg_ok "Installed Docker $DOCKER_LATEST_VERSION"
 
 read -r -p "Would you like to add Portainer? <Y/n> " prompt
-if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]
+if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" || $prompt == "" ]]
 then
 PORTAINER="Y"
 else
@@ -106,7 +106,7 @@ msg_ok "Installed Portainer $PORTAINER_LATEST_VERSION"
 fi
 
 read -r -p "Would you like to add Docker Compose? <Y/n> " prompt
-if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]
+if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes"  || $prompt == ""]]
 then
 DOCKER_COMPOSE="Y"
 else
