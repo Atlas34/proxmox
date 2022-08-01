@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bas h
 echo -e "Loading..."
 NEXTID=$(pvesh get /cluster/nextid)
 INTEGER='^[0-9]+$'
@@ -116,10 +116,10 @@ function advanced_settings() {
         CT_TYPE="0"
         echo -en "${DGN}Set CT Type ${BLUE}Privileged${NORMAL}"  
         fi;
-echo -e " ${CM}${NORMAL} \r"
-sleep 1
-clear
-header_info
+        echo -e " ${CM}${NORMAL} \r"
+        sleep 1
+        clear
+        header_info
         echo -e "${RED}Using Advanced Settings${NORMAL}"
         echo -e "${DGN}Using CT Type ${BGN}$CT_TYPE1${NORMAL}"
         echo -e "${YELLOW}Set Password, or Press [ENTER] for Default: Automatic Login "
@@ -130,10 +130,10 @@ header_info
           PW="-password $PW1"
         echo -en "${DGN}Set CT Password ${BLUE}$PW1${NORMAL}"
         fi;
-echo -e " ${CM}${NORMAL} \r"
-sleep 1
-clear
-header_info
+        echo -e " ${CM}${NORMAL} \r"
+        sleep 1
+        clear
+        header_info
         echo -e "${RED}Using Advanced Settings${NORMAL}"
         echo -e "${DGN}Using CT Type ${BGN}$CT_TYPE1${NORMAL}"
         echo -e "${DGN}Using CT Password ${BGN}$PW1${NORMAL}"
@@ -141,10 +141,10 @@ header_info
         read CT_ID
         if [ -z $CT_ID ]; then CT_ID=$NEXTID; fi;
         echo -en "${DGN}Set CT ID To ${BLUE}$CT_ID${NORMAL}"
-echo -e " ${CM}${NORMAL} \r"
-sleep 1
-clear
-header_info
+        echo -e " ${CM}${NORMAL} \r"
+        sleep 1
+        clear
+        header_info
         echo -e "${RED}Using Advanced Settings${NORMAL}"
         echo -e "${DGN}Using CT Type ${BGN}$CT_TYPE1${NORMAL}"
         echo -e "${DGN}Using CT Password ${BGN}$PW1${NORMAL}"
@@ -157,10 +157,10 @@ header_info
            HN=$(echo ${CT_NAME,,} | tr -d ' ')
         fi
         echo -en "${DGN}Set CT Name To ${BLUE}$HN${NORMAL}"
-echo -e " ${CM}${NORMAL} \r"
-sleep 1
-clear
-header_info
+        echo -e " ${CM}${NORMAL} \r"
+        sleep 1
+        clear
+        header_info
         echo -e "${RED}Using Advanced Settings${NORMAL}"
         echo -e "${DGN}Using CT Type ${BGN}$CT_TYPE1${NORMAL}"
         echo -e "${DGN}Using CT Password ${BGN}$PW1${NORMAL}"
@@ -171,10 +171,10 @@ header_info
         if [ -z $DISK_SIZE ]; then DISK_SIZE="8"; fi;
         if ! [[ $DISK_SIZE =~ $INTEGER ]] ; then echo "ERROR! DISK SIZE MUST HAVE INTEGER NUMBER!"; exit; fi;
         echo -en "${DGN}Set Disk Size To ${BLUE}$DISK_SIZE${NORMAL} ${DGN}GB${NORMAL}"
-echo -e " ${CM}${NORMAL} \r"
-sleep 1
-clear
-header_info
+        echo -e " ${CM}${NORMAL} \r"
+        sleep 1
+        clear
+        header_info
         echo -e "${RED}Using Advanced Settings${NORMAL}"
         echo -e "${DGN}Using CT Type ${BGN}$CT_TYPE1${NORMAL}"
         echo -e "${DGN}Using CT Password ${BGN}$PW1${NORMAL}"
@@ -185,10 +185,10 @@ header_info
         read CORE_COUNT
         if [ -z $CORE_COUNT ]; then CORE_COUNT="2"; fi;
         echo -en "${DGN}Set Cores To ${BLUE}$CORE_COUNT${NORMAL} ${DGN}vCPU${NORMAL}"
-echo -e " ${CM}${NORMAL} \r"
-sleep 1
-clear
-header_info
+        echo -e " ${CM}${NORMAL} \r"
+        sleep 1
+        clear
+        header_info
         echo -e "${RED}Using Advanced Settings${NORMAL}"
         echo -e "${DGN}Using CT Type ${BGN}$CT_TYPE1${NORMAL}"
         echo -e "${DGN}Using CT Password ${BGN}$PW1${NORMAL}"
@@ -200,10 +200,10 @@ header_info
         read RAM_SIZE
         if [ -z $RAM_SIZE ]; then RAM_SIZE="2048"; fi;
         echo -en "${DGN}Set RAM To ${BLUE}$RAM_SIZE${NORMAL} ${DGN}MiB RAM${NORMAL}"
-echo -e " ${CM}${NORMAL} \n"
-sleep 1
-clear
-header_info
+        echo -e " ${CM}${NORMAL} \n"
+        sleep 1
+        clear
+        header_info
         echo -e "${RED}Using Advanced Settings${NORMAL}"
         echo -e "${DGN}Using CT Type ${BGN}$CT_TYPE1${NORMAL}"
         echo -e "${DGN}Using CT Password ${BGN}$PW1${NORMAL}"
@@ -216,10 +216,10 @@ header_info
         read BRG
         if [ -z $BRG ]; then BRG="vmbr0"; fi;
         echo -en "${DGN}Set Bridge To ${BLUE}$BRG${NORMAL}"
-echo -e " ${CM}${NORMAL} \n"
-sleep 1
-clear
-header_info
+        echo -e " ${CM}${NORMAL} \n"
+        sleep 1
+        clear
+        header_info
         echo -e "${RED}Using Advanced Settings${NORMAL}"
         echo -e "${DGN}Using CT Type ${BGN}$CT_TYPE1${NORMAL}"
         echo -e "${DGN}Using CT Password ${BGN}$PW1${NORMAL}"
@@ -228,16 +228,16 @@ header_info
         echo -e "${DGN}Using Disk Size ${BGN}$DISK_SIZE${NORMAL} ${DGN}GB${NORMAL}"
         echo -e "${DGN}Using ${BGN}${CORE_COUNT}${NORMAL} ${DGN}vCPU${NORMAL}"
         echo -e "${DGN}Using ${BGN}${RAM_SIZE}${NORMAL} ${DGN}MiB RAM${NORMAL}"
-    	echo -e "${DGN}Using Bridge ${BGN}${BRG}${NORMAL}"
+        echo -e "${DGN}Using Bridge ${BGN}${BRG}${NORMAL}"
         echo -e "${YELLOW}Enter a Static IPv4 CIDR Address, or Press [ENTER] for Default: DHCP "
         read NET
         if [ -z $NET ]; then NET="dhcp"; fi;
         echo -en "${DGN}Set Static IP Address To ${BLUE}$NET${NORMAL}"
-echo -e " ${CM}${NORMAL} \n"
-sleep 1
-clear
-header_info
-    	echo -e "${RED}Using Advanced Settings${NORMAL}"
+        echo -e " ${CM}${NORMAL} \n"
+        sleep 1
+        clear
+        header_info
+        echo -e "${RED}Using Advanced Settings${NORMAL}"
         echo -e "${DGN}Using CT Type ${BGN}$CT_TYPE1${NORMAL}"
         echo -e "${DGN}Using CT Password ${BGN}$PW1${NORMAL}"
         echo -e "${DGN}Using CT ID ${BGN}$CT_ID${NORMAL}"
@@ -245,7 +245,7 @@ header_info
         echo -e "${DGN}Using Disk Size ${BGN}$DISK_SIZE${NORMAL} ${DGN}GB${NORMAL}"
         echo -e "${DGN}Using ${BGN}${CORE_COUNT}${NORMAL} ${DGN}vCPU${NORMAL}"
         echo -e "${DGN}Using ${BGN}${RAM_SIZE}${NORMAL} ${DGN}MiB RAM${NORMAL}"
-    	echo -e "${DGN}Using Bridge ${BGN}${BRG}${NORMAL}"
+        echo -e "${DGN}Using Bridge ${BGN}${BRG}${NORMAL}"
         echo -e "${DGN}Using Static IP Address ${BGN}$NET${NORMAL}"
         echo -e "${YELLOW}Enter a Gateway IP (mandatory if static IP is used), or Press [ENTER] for Default: NONE "
         read GATE1
@@ -255,10 +255,10 @@ header_info
           GATE=",gw=$GATE1"
         echo -en "${DGN}Set Gateway IP To ${BLUE}$GATE1${NORMAL}"
         fi;
-echo -e " ${CM}${NORMAL} \n"
-sleep 1
-clear
-header_info
+        echo -e " ${CM}${NORMAL} \n"
+        sleep 1
+        clear
+        header_info
 
         echo -e "${RED}Using Advanced Settings${NORMAL}"
         echo -e "${DGN}Using CT Type ${BGN}$CT_TYPE1${NORMAL}"
@@ -268,7 +268,7 @@ header_info
         echo -e "${DGN}Using Disk Size ${BGN}$DISK_SIZE${NORMAL} ${DGN}GB${NORMAL}"
         echo -e "${DGN}Using ${BGN}${CORE_COUNT}${NORMAL} ${DGN}vCPU${NORMAL}"
         echo -e "${DGN}Using ${BGN}${RAM_SIZE}${NORMAL} ${DGN}MiB RAM${NORMAL}"
-	echo -e "${DGN}Using Bridge ${BGN}${BRG}${NORMAL}"
+        echo -e "${DGN}Using Bridge ${BGN}${BRG}${NORMAL}"
         echo -e "${DGN}Using Static IP Address ${BGN}$NET${NORMAL}"
         echo -e "${DGN}Using Gateway IP Address ${BGN}$GATE1${NORMAL}"
         echo -e "${YELLOW}Enter a VLAN Tag, or Press [ENTER] for Default: NONE "
@@ -279,10 +279,10 @@ header_info
           VLAN=",tag=$VLAN1"
         echo -en "${DGN}Set VLAN Tag To ${BLUE}$VLAN1${NORMAL}"
         fi;
-echo -e " ${CM}${NORMAL} \n"
-sleep 1
-clear
-header_info
+        echo -e " ${CM}${NORMAL} \n"
+        sleep 1
+        clear
+        header_info
         echo -e "${RED}Using Advanced Settings${NORMAL}"
         echo -e "${DGN}Using CT Type ${BGN}$CT_TYPE1${NORMAL}"
         echo -e "${DGN}Using CT Password ${BGN}$PW1${NORMAL}"
@@ -291,17 +291,17 @@ header_info
         echo -e "${DGN}Using Disk Size ${BGN}$DISK_SIZE${NORMAL} ${DGN}GB${NORMAL}"
         echo -e "${DGN}Using ${BGN}${CORE_COUNT}${NORMAL} ${DGN}vCPU${NORMAL}"
         echo -e "${DGN}Using ${BGN}${RAM_SIZE}${NORMAL} ${DGN}MiB RAM${NORMAL}"
-	echo -e "${DGN}Using Bridge ${BGN}${BRG}${NORMAL}"
+        echo -e "${DGN}Using Bridge ${BGN}${BRG}${NORMAL}"
         echo -e "${DGN}Using Static IP Address ${BGN}$NET${NORMAL}"
         echo -e "${DGN}Using Gateway IP Address ${BGN}$GATE1${NORMAL}"
         echo -e "${DGN}Using VLAN Tag ${BGN}$VLAN1${NORMAL}"
 
-read -p "Are these settings correct(y/n)? " -n 1 -r
-echo
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
-    advanced_settings
-fi
+        read -p "Are these settings correct(y/n)? " -n 1 -r
+        echo
+        if [[ ! $REPLY =~ ^[Yy]$ ]]
+        then
+          advanced_settings
+        fi
 }
 
 function start_script() {
@@ -335,6 +335,7 @@ export PCT_OPTIONS="
   -hostname $HN
   -net0 name=eth0,bridge=$BRG,ip=$NET$GATE$VLAN
   -onboot 1
+  -arch amd64
   -cores $CORE_COUNT
   -memory $RAM_SIZE
   -unprivileged $CT_TYPE
