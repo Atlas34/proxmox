@@ -38,17 +38,18 @@ function msg_ok() {
     echo -e "${BFR} ${CM} ${GREEN}${msg}${NORMAL}"
 }
 
+get_latest_release() {
+   curl -sL https://api.github.com/repos/$1/releases/latest | grep '"tag_name":' | cut -d'"' -f4
+}
+
 msg_info "Updating Container OS"
 apt update &>/dev/null
 apt-get -qqy upgrade &>/dev/null
 msg_ok "Updated Container OS"
 
-get_latest_release() {
-   curl -sL https://api.github.com/repos/$1/releases/latest | grep '"tag_name":' | cut -d'"' -f4
-}
+CORE_LATEST_VERSION=$(get_latest_release "home-assistant/core")
 
 msg_info "Pulling Home Assistant $CORE_LATEST_VERSION Image"
-CORE_LATEST_VERSION=$(get_latest_release "home-assistant/core")
 docker pull homeassistant/home-assistant:stable &>/dev/null
 msg_ok "Pulled Home Assistant $CORE_LATEST_VERSION Image"
 
