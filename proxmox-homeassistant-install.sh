@@ -83,7 +83,7 @@ then
   apt install unzip &>/dev/null
   msg_ok "Installed Dependencies."
   msg_info "Installing HACS latest version"
-  cd /root/HomeAssistant_config
+  cd /var/lib/docker/volumes/HomeAssistant_config/_data
   wget -O - https://get.hacs.xyz | bash -
   msg_ok "Installed HACS completed"
 fi
