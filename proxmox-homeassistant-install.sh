@@ -59,11 +59,14 @@ docker run -d \
   --name home_assistant \
   --privileged \
   --restart unless-stopped \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v /dev:/dev \
+  --device /dev/ttyUSB0:/dev/ttyUSB0 \
   -v HomeAssistant_config:/config \
+  -v /dev/serial/by-id/:/dev/serial/by-id/ \
   -v /etc/localtime:/etc/localtime:ro \
-  --net=host \
+  -p 8123:8123 \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/Paris \
   homeassistant/home-assistant:stable &>/dev/null
 msg_ok "Installed Home Assistant $CORE_LATEST_VERSION"
 
