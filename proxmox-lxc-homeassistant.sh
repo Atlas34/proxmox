@@ -109,7 +109,7 @@ EOF
 
 read -p "Do you want to start the conatiner (y/n)? " -n 1 -r
 echo
-if [[ ! $REPLY =~ ^[Yy]$ ]]
+if [[ $REPLY =~ ^[Yy]$ ]]
 then
   msg_info "Starting LXC Container"V
   pct start $CTID
