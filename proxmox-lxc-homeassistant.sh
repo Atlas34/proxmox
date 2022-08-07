@@ -107,9 +107,9 @@ lxc.cgroup2.devices.allow: a
 lxc.cap.drop:
 EOF
 
-read -p "Do you want to start the conatiner (y/n)? " -n 1 -r
+read -p "Do you want to start the container (y/n)? " -n 1 -r
 echo
-if [[ $REPLY =~ ^[Yy]$ ]]
+if [[ $REPLY == ^[Yy]$ ]]
 then
   msg_info "Starting LXC Container"V
   pct start $CTID
