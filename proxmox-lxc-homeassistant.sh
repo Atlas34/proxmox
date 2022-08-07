@@ -107,9 +107,14 @@ lxc.cgroup2.devices.allow: a
 lxc.cap.drop:
 EOF
 
-msg_info "Starting LXC Container"
-pct start $CTID
-msg_ok "Started LXC Container"
+read -p "Do you want to start the conatiner (y/n)? " -n 1 -r
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+  msg_info "Starting LXC Container"V
+  pct start $CTID
+  msg_ok "Started LXC Container"
+fi
 
 lxc-attach -n $CTID -- bash -c "$(wget -qLO - https://github.com/atlas34/proxmox/raw/main/proxmox-homeassistant-install.sh)" || exit
 
