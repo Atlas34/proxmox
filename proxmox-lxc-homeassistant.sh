@@ -84,7 +84,7 @@ function select_container() {
     echo -en "${DGN}Set CT ID To ${BLUE}$CT_ID${NORMAL}"
     echo -e " ${CM}${NORMAL} \r"
 
-    read -p -r "Are these settings correct(y/n)? " REPLY
+    read -r -p "Are these settings correct (y/n)? " REPLY
     echo
     if [[ ! $REPLY =~ ^[Yy]$ ]]
     then
@@ -107,7 +107,7 @@ lxc.cgroup2.devices.allow: a
 lxc.cap.drop:
 EOF
 
-read -p -r "Do you want to start the container (y/n)? " REPLY
+read -r -p "Do you want to start the container (y/n)? " REPLY
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
