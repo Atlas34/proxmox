@@ -71,6 +71,8 @@ get_latest_release() {
 DOCKER_LATEST_VERSION=$(get_latest_release "moby/moby")
 PORTAINER_LATEST_VERSION=$(get_latest_release "portainer/portainer")
 DOCKER_COMPOSE_LATEST_VERSION=$(get_latest_release "docker/compose")
+HEIMDALL_VERSION=$(get_latest_release "linuxserver/Heimdall")
+WATCHTOWER_VERSION=$(get_latest_release "containrrr/watchtower")
 
 msg_info "Installing Docker $DOCKER_LATEST_VERSION"
 DOCKER_CONFIG_PATH='/etc/docker/daemon.json'
@@ -120,6 +122,48 @@ msg_info "Installing Docker Compose $DOCKER_COMPOSE_LATEST_VERSION"
   curl -sSL https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_LATEST_VERSION/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose  
   chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 msg_ok "Installed Docker Compose $DOCKER_COMPOSE_LATEST_VERSION"
+fi
+
+read -r -p "Would you like to add Heimdall ? <Y/n> " prompt
+if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" || $prompt == "" ]]
+then
+HEIMDALL="Y"
+else
+HEIMDALL="N"
+fi
+
+if [[ $HEIMDALL == "Y" ]]; then
+msg_info "Installing HEIMDALL $HEIMDALL_VERSION"
+docker volume create heimdall_config >/dev/null
+docker run -d \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Europe/Paris \
+  -p 80:80 \
+  -p 443:443 \
+  --name=Heimdall \
+  --restart=unless-stopped \
+  -v heimdall_config:/config \
+  lscr.io/linuxserver/heimdall:latest &>/dev/null
+msg_ok "Installed Heimdall $HEIMDALL_VERSION"
+fi
+
+read -r -p "Would you like to add WatchTower ? <Y/n> " prompt
+if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" || $prompt == "" ]]
+then
+WATCHTOWER="Y"
+else
+WATCHTOWER="N"
+fi
+
+if [[ $WATCHTOWER == "Y" ]]; then
+msg_info "Installing WatchTower $WATCHTOWER_VERSION"
+docker run -d \
+  --name=WatchTower \
+  --restart=unless-stopped \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  containrrr/watchtower &>/dev/null
+msg_ok "Installed WatchTower $WATCHTOWER_VERSION"
 fi
 
 PASS=$(grep -w "root" /etc/shadow | cut -b6);
