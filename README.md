@@ -1,6 +1,27 @@
 # Proxmox Scripts
 based on https://tteck.github.io/Proxmox/ Scripts
 
+## Proxmox remove and extend volume
+
+Click on *Datacenter*, go to *Storage* and remove *local-lvm*
+
+Go into console and run the following commands:
+
+* Remove data logical volume
+```yaml
+lvremove /dev/pve/data
+```
+
+* resize root logical volume
+```yaml
+lvresize -l 100%FREE /dev/pve/root
+```
+
+* resize root mapper
+```yaml
+resize2fs /dev/mapper/pve-root
+```
+
 ## Proxmox Post Install script:
 
 <p align="center"><img src="https://raw.githubusercontent.com/Atlas34/proxmox/main/images/proxmox.png" height="100"/></p>
