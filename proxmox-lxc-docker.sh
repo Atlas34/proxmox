@@ -327,8 +327,8 @@ pushd $TEMP_DIR >/dev/null
 
 export CTID=$CT_ID
 export PCT_SECTION=turnkeylinux
-export PCT_OSTYPE=debian-10-turnkey
-export PCT_OSVERSION=core_16.1
+export PCT_OSTYPE=debian-11-turnkey
+export PCT_OSVERSION=core_17.1
 export PCT_DISK_SIZE=$DISK_SIZE
 export PCT_OPTIONS="
   -features $FEATURES

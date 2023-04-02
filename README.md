@@ -34,6 +34,18 @@ Run the following in the Proxmox Shell. ⚠️ **PVE7 ONLY**
 bash -c "$(wget -qLO - https://github.com/atlas34/proxmox/raw/main/proxmox-post-install.sh)"
 ```
 
+## Proxmox Dark Theme:
+
+<p align="center"><img src="https://raw.githubusercontent.com/Atlas34/proxmox/main/images/proxmox_dark_theme.png" height="100"/></p>
+
+ Dark theme for the Proxmox Web UI is a custom theme created by [Weilbyte](https://github.com/Weilbyte/PVEDiscordDark) that changes the look and feel of the Proxmox web-based interface to a dark color scheme. 
+
+```yaml
+bash <(curl -s https://raw.githubusercontent.com/Weilbyte/PVEDiscordDark/master/PVEDiscordDark.sh ) install
+```
+
+To uninstall the theme, simply run the script with the ```uninstall``` command.
+
 ## Proxmox Install Jellyfin in LXC container
 
 <p align="center"><img src="https://raw.githubusercontent.com/atlas34/proxmox/main/images/jellyfin.png" height="100"/></p>

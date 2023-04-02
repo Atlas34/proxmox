@@ -33,7 +33,7 @@ echo -e "${RED}
   _______      ________ ______   _____          _     _____           _        _ _ 
  |  __ \ \    / /  ____|____  | |  __ \        | |   |_   _|         | |      | | |
  | |__) \ \  / /| |__      / /  | |__) |__  ___| |_    | |  _ __  ___| |_ __ _| | |
- |  ___/ \ \/ / |  __| v3 / /   |  ___/ _ \/ __| __|   | | |  _ \/ __| __/ _  | | |
+ |  ___/ \ \/ / |  __| v2 / /   |  ___/ _ \/ __| __|   | | |  _ \/ __| __/ _  | | |
  | |      \  /  | |____  / /    | |  | (_) \__ \ |_   _| |_| | | \__ \ || (_| | | |
  |_|       \/   |______|/_/     |_|   \___/|___/\__| |_____|_| |_|___/\__\__,_|_|_|
 ${NORMAL}"
@@ -63,14 +63,14 @@ fi
 read -r -p "Add/Correct PVE7 Sources (sources.list)? <y/n> " prompt
 if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]
 then
-msg_info "Adding or Correcting PVE7 Sources"
-cat <<EOF > /etc/apt/sources.list
+    msg_info "Adding or Correcting PVE7 Sources"
+    cat <<EOF >/etc/apt/sources.list
 deb http://ftp.debian.org/debian bullseye main contrib
 deb http://ftp.debian.org/debian bullseye-updates main contrib
 deb http://security.debian.org/debian-security bullseye-security main contrib
 EOF
-sleep 2
-msg_ok "Added or Corrected PVE7 Sources"
+    sleep 2
+    msg_ok "Added or Corrected PVE7 Sources"
 fi
 
 read -r -p "Enable No-Subscription Repository? <y/n> " prompt
@@ -95,13 +95,12 @@ sleep 2
 msg_ok "Added Beta/Test Repository"
 fi
 
-read -r -p "Disable Subscription Nag? <y/n> " prompt
+read -r -p "Disable Subscription Nag? <y/N> " prompt
 if [[ $prompt == "y" || $prompt == "Y" || $prompt == "yes" || $prompt == "Yes" ]]
-then
-msg_info "Disabling Subscription Nag"
-echo "DPkg::Post-Invoke { \"dpkg -V proxmox-widget-toolkit | grep -q '/proxmoxlib\.js$'; if [ \$? -eq 1 ]; then { echo 'Removing subscription nag from UI...'; sed -i '/data.status/{s/\!//;s/Active/NoMoreNagging/}' /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js; }; fi\"; };" > /etc/apt/apt.conf.d/no-nag-script
-apt --reinstall install proxmox-widget-toolkit &>/dev/null
-msg_ok "Disabled Subscription Nag"
+    msg_info "Disabling Subscription Nag"
+    echo "DPkg::Post-Invoke { \"dpkg -V proxmox-widget-toolkit | grep -q '/proxmoxlib\.js$'; if [ \$? -eq 1 ]; then { echo 'Removing subscription nag from UI...'; sed -i '/data\.status.*{/{s/\!//;s/active/NoMoreNagging/}' /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js; }; fi\"; };" >/etc/apt/apt.conf.d/no-nag-script
+    apt --reinstall install proxmox-widget-toolkit &>/dev/null
+    msg_ok "Disabled Subscription Nag (Delete browser cache)"
 fi
 
 read -r -p "Update Proxmox VE 7 now? <y/n> " prompt
